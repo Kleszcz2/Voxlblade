@@ -1,0 +1,8 @@
+return function(Object, Instance)
+   if Object:IsA('MeshPart') then
+       return {
+           Color = Color3.fromRGB(255, 213, 128),
+           Name = tostring(Object.Name)
+       }
+    end
+end
