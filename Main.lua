@@ -1,7 +1,7 @@
 local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
 
-local Camera = Workspace.CurrentCamera
+local Camera = workspace.CurrentCamera
 local RenderStepped = RunService.RenderStepped
 
 local Cache = {}
@@ -83,13 +83,13 @@ local function Update()
 	end
 end
 
-for _, v in pairs(Workspace:GetChildren()) do
+for _, v in pairs(workspace.Trinkets:GetChildren()) do
 	if v:FindFirstChildWhichIsA('ClickDetector', true) and v:FindFirstChild('ID') then
 		NewESP(v, TrinketType(v))
 	end
 end
 
-Workspace.ChildAdded:Connect(function(Object)
+workspace.Trinkets.ChildAdded:Connect(function(Object)
 	if Object:FindFirstChildWhichIsA('ClickDetector', true) and Object:FindFirstChild('ID') then
 		NewESP(Object, TrinketType(Object))
 	end
